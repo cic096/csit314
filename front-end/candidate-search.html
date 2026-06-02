@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Jobs - Job Search</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo"><a href="candidate-home.html">Job Search</a></div>
+        <div class="nav-links">
+            <a href="candidate-home.html">Home</a>
+            <a href="account.html">Account</a>
+            <a href="candidate-search.html">Search</a>
+            <a href="login.html">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="page-title">Search Jobs</h2>
+        <p class="page-subtitle">Search job listings by keywords in the job description.</p>
+
+        <div class="card" style="display:flex;gap:10px;align-items:center;">
+            <input type="text" id="searchInput" placeholder="Search job descriptions..." style="flex:1;padding:8px 10px;border:1px solid #ccc;font-size:14px;font-family:Arial,sans-serif;">
+            <button class="btn btn-primary">Search</button>
+        </div>
+
+        <div id="searchResults" style="margin-top:20px;">
+            <div class="empty-state"><p>Enter keywords above to search for jobs.</p></div>
+        </div>
+    </div>
+</body>
+</html>

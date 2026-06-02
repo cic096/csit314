@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Candidates - Job Search</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo"><a href="employer-home.html">Job Search</a></div>
+        <div class="nav-links">
+            <a href="employer-home.html">Home</a>
+            <a href="manage-jobs.html">Manage Jobs</a>
+            <a href="account.html">Account</a>
+            <a href="employer-search.html">Search</a>
+            <a href="login.html">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="page-title">Search Candidates</h2>
+        <p class="page-subtitle">Find candidates by skills, education, experience, or keywords.</p>
+
+        <div class="card">
+            <div class="form-row" style="align-items:end;">
+                <div class="form-group" style="flex:2;">
+                    <label for="searchInput">Keyword</label>
+                    <input type="text" id="searchInput" placeholder="Search by name or keyword...">
+                </div>
+                <div class="form-group">
+                    <label for="filterSkill">Skill</label>
+                    <input type="text" id="filterSkill" placeholder="e.g. JavaScript">
+                </div>
+                <div class="form-group">
+                    <label for="filterEducation">Education</label>
+                    <select id="filterEducation">
+                        <option value="">Any</option>
+                        <option value="0">Year 10</option>
+                        <option value="1">Year 12</option>
+                        <option value="2">Bachelors</option>
+                        <option value="3">Masters</option>
+                        <option value="4">PhD</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filterExperience">Experience (min yrs)</label>
+                    <input type="number" id="filterExperience" min="0" value="" placeholder="0">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" style="margin-top:6px;">Search</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="searchResults" style="margin-top:20px;">
+            <div class="empty-state"><p>Use the filters above to search for candidates.</p></div>
+        </div>
+    </div>
+</body>
+</html>

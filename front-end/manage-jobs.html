@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Jobs - Job Search</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo"><a href="employer-home.html">Job Search</a></div>
+        <div class="nav-links">
+            <a href="employer-home.html">Home</a>
+            <a href="manage-jobs.html">Manage Jobs</a>
+            <a href="account.html">Account</a>
+            <a href="login.html">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="page-title">Manage Job Postings</h2>
+
+        <div class="card">
+            <h3 class="section-title">Post a New Job</h3>
+            <form id="jobForm">
+                <div id="successMsg" class="alert alert-success hidden">Job posted successfully!</div>
+                <div id="errorMsg" class="alert alert-error hidden"></div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="jobTitle">Job Title</label>
+                        <input type="text" id="jobTitle" placeholder="e.g. Software Engineer" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobCompany">Company Name</label>
+                        <input type="text" id="jobCompany" placeholder="Acme Corp" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="jobDesc">Job Description</label>
+                    <textarea id="jobDesc" placeholder="Describe the role, responsibilities, and requirements..." required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="jobEducation">Required Education Level</label>
+                        <select id="jobEducation">
+                            <option value="0">Year 10 or earlier</option>
+                            <option value="1">Year 12</option>
+                            <option value="2">Bachelors Degree</option>
+                            <option value="3">Masters Degree</option>
+                            <option value="4">PhD</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobExperience">Years of Experience Required</label>
+                        <input type="number" id="jobExperience" min="0" value="0" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="jobSkills">Required Skills</label>
+                    <input type="text" id="jobSkills" placeholder="e.g. JavaScript, React, Node.js" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="jobWorkMode">Work Mode</label>
+                        <select id="jobWorkMode">
+                            <option value="0">Remote</option>
+                            <option value="1">On-site</option>
+                            <option value="2">Hybrid</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobLocation">Location</label>
+                        <input type="text" id="jobLocation" placeholder="e.g. Sydney, NSW" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success">Post Job</button>
+            </form>
+        </div>
+
+        <div class="card" style="margin-top:20px;">
+            <h3 class="section-title">Your Job Listings</h3>
+            <div id="jobList">
+                <p style="color:#7f8c8d;">Loading your job listings...</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - Job Search</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo"><a href="candidate-home.html">Job Search</a></div>
+        <div class="nav-links">
+            <a href="candidate-home.html">Home</a>
+            <a href="account.html">Account</a>
+            <a href="login.html">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="page-title">My Account</h2>
+        <div class="card">
+            <form>
+                <div id="successMsg" class="alert alert-success hidden">Profile saved successfully!</div>
+                <div id="errorMsg" class="alert alert-error hidden"></div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div id="candidateFields" class="hidden">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="preferredName">Preferred Name</label>
+                        <input type="text" id="preferredName">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="education">Education Level</label>
+                            <select id="education">
+                                <option value="0">Year 10 or earlier</option>
+                                <option value="1">Year 12</option>
+                                <option value="2">Bachelors Degree</option>
+                                <option value="3">Masters Degree</option>
+                                <option value="4">PhD</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="major">Major</label>
+                            <input type="text" id="major">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">Years of Experience</label>
+                        <input type="number" id="experience" min="0" value="0">
+                    </div>
+                </div>
+
+                <div id="employerFields" class="hidden">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="companyName">Company Name</label>
+                            <input type="text" id="companyName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="industry">Industry</label>
+                            <input type="text" id="industry" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bin">Business Identification Number</label>
+                        <input type="text" id="bin" required>
+                    </div>
+                </div>
+
+                <div style="display:flex;gap:10px;margin-top:20px;">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="button" class="btn btn-danger">Logout</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
