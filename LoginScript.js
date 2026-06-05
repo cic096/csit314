@@ -16,28 +16,45 @@ const app = initializeApp(firebaseConfig);
 export function employeeSignUp (email, pw, fName, lName, pName, edu, major, exp) {
     // Basically just check if the email is already used in the database, if not, then add a new entry, else show a message under the email input box that the email is already in use
     const database = getDatabase(app);
-    var conflicts;
-    get(child(ref(database), 'employees/'+email)).then((snapshot) => {
-        console.log(snapshot.exists())
+    var conflicts = false;
+    get(child(ref(database), 'employees/' + email)).then((snapshot) => {
+        console.log(snapshot.exists());
         if (snapshot.exists()) {
-            conflicts = true;
+            var conflicts = true;
         }
         else {
-            conflicts = false;
+            var conflicts = false;
         }
     }).catch((error) => {
         console.log(error);
-    })
+    });
+    console.log(conflicts);
     if (conflicts == false) {
-        set(ref(database, 'employees/' + email), {
-            password: pw,
-            lFirstName: fName,
-            lLastName: lName,
-            prefName: pName,
-            education: edu,
-            field: major,
-            experience: exp
-        })
+        if (major != null) {
+            set(ref(database, 'employees/' + email), {
+                password: pw,
+                lFirstName: fName,
+                lLastName: lName,
+                prefName: pName,
+                education: edu,
+                field: major,
+                experience: exp,
+                member: false
+            });
+        }
+        else {
+            set(ref(database, 'employees/' + email), {
+                password: pw,
+                lFirstName: fName,
+                lLastName: lName,
+                prefName: pName,
+                education: edu,
+                field: '',
+                experience: exp,
+                member: false
+            });
+        }
+        
         return true;
     }
     else {
@@ -48,14 +65,25 @@ export function employeeSignUp (email, pw, fName, lName, pName, edu, major, exp)
 export function employerSignUp(email, bin, pw, companyName, industry) {
     // Add to a database, make sure that the bin is unique else same as above
     const database = getDatabase(app);
-    const conflicts = get(child(ref(database), 'employers/${email}')).exists();
+    var conflicts = false;
+    get(child(ref(database), 'employers/' + bin)).then((snapshot) => {
+        console.log(snapshot.exists());
+    if (snapshot.exists()) {
+            var conflicts = true;
+        }
+        else {
+            var conflicts = false;
+        }
+    }).catch((error) => {
+        console.log(error);
+    });
     if (conflicts == false) {
         set(ref(database, 'employers/' + bin), {
             name: companyName,
             password: pw,
             ind: industry,
             em: email
-        })
+        });
         return true
     }
     else {

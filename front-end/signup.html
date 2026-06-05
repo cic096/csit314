@@ -182,7 +182,7 @@
                 eduSpinner.value, major.value, document.getElementById("experience").value);
                 console.log(succeed);
                 if (succeed) {
-                    // proceed
+                    location.href="candidate-home.html";
                 }
                 else {
                     error.innerText = "Email already in use, please try to log in.";
@@ -192,7 +192,7 @@
             else {
                 var succeed = employerSignUp(document.getElementById('empEmail').value, document.getElementById('bin').value, empPassword.value, document.getElementById('companyName').value, document.getElementById('industry').value);
                 if (succeed){
-                    // proceed
+                    location.href="employer-home.html";
                 }
                 else {
                     error.innerText = "BIN already in use, please try to log in.";
