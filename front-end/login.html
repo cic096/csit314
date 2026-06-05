@@ -36,6 +36,19 @@
 </body>
 <script src = "../LoginScript.js">
     const submit = document.getElementById('submit');
-    
+    submit.addEventListener('click', () => {
+        let success = login(document.getElementById("email").value, document.getElementById("password").value, document.getElementById('role').value);
+        if (success && document.getElementById('role').value == 'candidate') {
+            location.href = 'candidate-home.html';
+        }
+        else if (success && document.getElementById('role').value == 'employer') {
+            location.href = 'employer-home.html';
+        }
+        else {
+            let error = document.getElementById('errorMsg');
+            error.classList.remove('hidden');
+            error.innerText = 'Login failed.';
+        }
+    });
 </script>
 </html>

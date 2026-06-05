@@ -66,7 +66,7 @@ export function employerSignUp(email, bin, pw, companyName, industry) {
     // Add to a database, make sure that the bin is unique else same as above
     const database = getDatabase(app);
     var conflicts = false;
-    get(child(ref(database), 'employers/' + bin)).then((snapshot) => {
+    get(child(ref(database), 'employers/' + email)).then((snapshot) => {
         console.log(snapshot.exists());
     if (snapshot.exists()) {
             var conflicts = true;
@@ -78,11 +78,11 @@ export function employerSignUp(email, bin, pw, companyName, industry) {
         console.log(error);
     });
     if (conflicts == false) {
-        set(ref(database, 'employers/' + bin), {
+        set(ref(database, 'employers/' + email), {
             name: companyName,
             password: pw,
             ind: industry,
-            em: email
+            ident: bin
         });
         return true
     }
@@ -90,3 +90,33 @@ export function employerSignUp(email, bin, pw, companyName, industry) {
         return false
     }
 }
+
+export function login(email, password, type) {
+        const database = getDatabase(app);
+        if (type == 'candidate') {
+            get(child(ref(database, 'employees' + email)).then((snapshot) => {
+                console.log(snapshot.val());
+                if (snapshot.exists()) {
+                    if (snapshot.child('password').val() == password) {
+                        return true;
+                    }
+                }
+                else {
+                    return false;
+                }
+            }));
+        }
+        else {
+            get(child(ref(database, 'employers' + email)).then((snapshot) => {
+                console.log(snapshot.val());
+                if (snapshot.exists()) {
+                    if (snapshot.child('password').val() == password) {
+                        return true;
+                    }
+                }
+                else {
+                    return false;
+                }
+            }));
+        }
+    }
