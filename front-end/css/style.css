@@ -98,6 +98,7 @@ body {
 
 .form-group {
     margin-bottom: 15px;
+    display:block;
 }
 
 .form-group label {

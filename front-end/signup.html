@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Job Search</title>
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
 <body>
     <div class="auth-card">
@@ -14,8 +15,8 @@
             <div id="signupError" class="alert alert-error hidden"></div>
 
             <div class="role-toggle">
-                <button type="button" class="active" data-role="candidate">Candidate</button>
-                <button type="button" data-role="employer">Employer</button>
+                <button type="button" class="active" data-role="candidate" id="candidate">Candidate</button>
+                <button type="button" data-role="employer" id="employer">Employer</button>
             </div>
 
             <div id="candidateFields">
@@ -96,11 +97,14 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width:100%;padding:12px;font-size:16px;">Create Account</button>
+            <button type="submit" class="btn btn-primary" style="width:100%;padding:12px;font-size:16px;" id="submit">Create Account</button>
         </form>
         <div class="auth-link">
             Already have an account? <a href="login.html">Log in</a>
         </div>
     </div>
+    <script type="module">
+        import { employeeSignUp } from '../dist/bundle.js';
+    </script>
 </body>
 </html>
