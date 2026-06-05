@@ -11,7 +11,7 @@ const firebaseConfig = {
   databaseURL: "https://jobsearch-8f1c9-default-rtdb.asia-southeast1.firebasedatabase.app/"
 };
 
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 export function employeeSignUp (email, pw, fName, lName, pName, edu, major, exp) {
     // Basically just check if the email is already used in the database, if not, then add a new entry, else show a message under the email input box that the email is already in use

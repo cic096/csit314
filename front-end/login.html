@@ -34,7 +34,8 @@
         </div>
     </div>
 </body>
-<script src = "../LoginScript.js">
+<script src = "../LoginScript.js" type="module"></script>
+<script>
     const submit = document.getElementById('submit');
     submit.addEventListener('click', () => {
         let success = login(document.getElementById("email").value, document.getElementById("password").value, document.getElementById('role').value);
